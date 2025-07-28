@@ -22,7 +22,9 @@ const RightBar = () => {
   useEffect(() => {
     const fetchsongs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/getsong");
+        const res = await axios.get(
+          "https://spotifybackend-4.onrender.com/api/getsong"
+        );
         setSong(res.data);
       } catch (error) {
         console.log("error in fetching songs");

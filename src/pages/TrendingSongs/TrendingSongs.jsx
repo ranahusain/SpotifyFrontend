@@ -24,7 +24,9 @@ const TrendingSongs = () => {
   useEffect(() => {
     const fetchsongs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/getsong/");
+        const res = await axios.get(
+          "https://spotifybackend-4.onrender.com/api/getsong/"
+        );
         setSong(res.data);
       } catch (error) {
         console.log("error in fetching songs");
@@ -74,11 +76,14 @@ const TrendingSongs = () => {
   const handleAddToPlaylistClick = async (song) => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/getplaylists", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }); // Change this
+      const res = await axios.get(
+        "https://spotifybackend-4.onrender.com/api/getplaylists",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      ); // Change this
       setPlaylists(res.data);
       setSelectedSong(song);
       setShowPlaylistPopup(true);
@@ -89,10 +94,13 @@ const TrendingSongs = () => {
 
   const handlePlaylistSelect = async (playlistId) => {
     try {
-      await axios.post("http://localhost:5000/api/playlists/add", {
-        songId: selectedSong._id,
-        playlistId,
-      });
+      await axios.post(
+        "https://spotifybackend-4.onrender.com/api/playlists/add",
+        {
+          songId: selectedSong._id,
+          playlistId,
+        }
+      );
       setShowPlaylistPopup(false);
       setOpenMenuId(null);
       toast.success("Song added to playlist!");

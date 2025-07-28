@@ -28,10 +28,13 @@ const LogIn = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/login/", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://spotifybackend-4.onrender.com/api/login/",
+        {
+          email,
+          password,
+        }
+      );
 
       if (res.data.success) {
         const loggedInUser = res.data.user;
@@ -69,7 +72,7 @@ const LogIn = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/google-login",
+        "https://spotifybackend-4.onrender.com/api/google-login",
         {
           name:
             user.user_metadata?.name ||

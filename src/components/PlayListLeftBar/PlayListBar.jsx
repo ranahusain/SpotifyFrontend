@@ -11,11 +11,14 @@ const PlaylistSidebar = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await axios.get("http://localhost:5000/api/getplaylists", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }); // adjust endpoint
+        const res = await axios.get(
+          "https://spotifybackend-4.onrender.com/api/getplaylists",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        ); // adjust endpoint
         setPlaylists(res.data);
       } catch (err) {
         console.error("Failed to fetch playlists:", err);

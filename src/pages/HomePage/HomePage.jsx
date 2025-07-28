@@ -34,12 +34,15 @@ const HomePage = () => {
             const user = JSON.parse(localStorage.getItem("user"));
             const userId = user._id;
 
-            await axios.put(`http://localhost:5000/api/isPremium/${userId}`, {
-              isPremium: true,
-            });
+            await axios.put(
+              `https://spotifybackend-4.onrender.com/api/isPremium/${userId}`,
+              {
+                isPremium: true,
+              }
+            );
             toast.success("Payment successful!");
             const { data } = await axios.get(
-              `http://localhost:5000/api/user/${userId}`
+              `https://spotifybackend-4.onrender.com/api/user/${userId}`
             );
             localStorage.setItem("user", JSON.stringify(data.user));
           } catch (error) {

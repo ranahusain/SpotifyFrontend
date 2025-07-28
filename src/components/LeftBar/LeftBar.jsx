@@ -33,10 +33,13 @@ const LeftBar = () => {
     }
     console.log(isPremium);
     try {
-      const res = await axios.post("http://localhost:5000/api/playlists", {
-        name,
-        owner,
-      });
+      const res = await axios.post(
+        "https://spotifybackend-4.onrender.com/api/playlists",
+        {
+          name,
+          owner,
+        }
+      );
       console.log(res.data);
       toast.success("Playlist created successfully!");
       setName("");

@@ -31,7 +31,7 @@ const SignUp = () => {
   // const submitForm = async (e) => {
   //   if (!isVerificationStep) {
   //     try {
-  //       const res = await axios.post("http://localhost:5000/api/signup/", {
+  //       const res = await axios.post("https://spotifybackend-4.onrender.com/api/signup/", {
   //         name,
   //         email,
   //         password,
@@ -56,7 +56,7 @@ const SignUp = () => {
   //   const newUser = { name, email, password };
   //   try {
   //     const res = await axios.post(
-  //       "http://localhost:5000/api/signup/",
+  //       "https://spotifybackend-4.onrender.com/api/signup/",
   //       newUser
   //     );
 
@@ -64,7 +64,7 @@ const SignUp = () => {
   //       if (isVerificationStep) {
   //         try {
   //           const res = await axios.post(
-  //             "http://localhost:5000/api/verify-email",
+  //             "https://spotifybackend-4.onrender.com/api/verify-email",
   //             {
   //               email,
   //               code: verificationCode,
@@ -104,11 +104,14 @@ const SignUp = () => {
 
     if (!isVerificationStep) {
       try {
-        const res = await axios.post("http://localhost:5000/api/signup/", {
-          name,
-          email,
-          password,
-        });
+        const res = await axios.post(
+          "https://spotifybackend-4.onrender.com/api/signup/",
+          {
+            name,
+            email,
+            password,
+          }
+        );
 
         if (res.data.success) {
           toast.success("Verification code sent to your email!");
@@ -122,10 +125,13 @@ const SignUp = () => {
       }
     } else {
       try {
-        const res = await axios.post("http://localhost:5000/api/verify-code", {
-          email,
-          code: verificationCode,
-        });
+        const res = await axios.post(
+          "https://spotifybackend-4.onrender.com/api/verify-code",
+          {
+            email,
+            code: verificationCode,
+          }
+        );
 
         if (res.status === 200) {
           toast.success("Email verified! Welcome email sent.");
@@ -167,7 +173,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/google-login",
+        "https://spotifybackend-4.onrender.com/api/google-login",
         {
           name:
             user.user_metadata?.name ||

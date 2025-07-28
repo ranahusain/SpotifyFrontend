@@ -18,15 +18,18 @@ const AddSong = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/addsong/", {
-        songname,
-        artistName,
-        artistImageURL,
-        imageURL,
-        songURL,
-        albumName,
-        albumImageURL,
-      });
+      const res = await axios.post(
+        "https://spotifybackend-4.onrender.com/api/addsong/",
+        {
+          songname,
+          artistName,
+          artistImageURL,
+          imageURL,
+          songURL,
+          albumName,
+          albumImageURL,
+        }
+      );
       console.log(res.data);
 
       // Clear form

@@ -61,9 +61,12 @@ const AvatarUpload = ({ onClose }) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const userId = user._id;
 
-      await axios.put(`http://localhost:5000/api/update-avatar/${userId}`, {
-        avatarURL: avatarUrl,
-      });
+      await axios.put(
+        `https://spotifybackend-4.onrender.com/api/update-avatar/${userId}`,
+        {
+          avatarURL: avatarUrl,
+        }
+      );
 
       setTimeout(() => {
         if (onClose) onClose();
