@@ -6,9 +6,12 @@ import FooterUp from "../../components/FooterUp/FooterUp";
 import Navbar from "../../components/NavBar/NavBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
 import Footer from "../../components/Footer/Footer";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const PopularArtist = () => {
   const [songs, setSong] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchsongs = async () => {
@@ -19,6 +22,8 @@ const PopularArtist = () => {
         setSong(res.data);
       } catch (error) {
         console.log("error in fetching songs");
+      } finally {
+        setLoading(false);
       }
     };
     fetchsongs();
@@ -38,15 +43,37 @@ const PopularArtist = () => {
               <h2>Popular artists</h2>
             </div>
             <div className={styles.song_grid}>
-              {songs.map((song) => (
-                <div className={styles.song_card} key={song._id}>
-                  <div className={styles.image_wrapper_1}>
-                    <img src={song.artist.imageURL} alt={song.songname} />
+              {loading ? (
+                <SkeletonTheme baseColor="#2a2a2a" highlightColor="#3e3e3e">
+                  {Array.from({ length: 7 }).map((_, i) => (
+                    <div className={styles.song_card} key={i}>
+                      <div className={styles.image_wrapper_1}>
+                        <Skeleton circle={true} height={150} width={150} />
+                      </div>
+                      <h3>
+                        <Skeleton width={80} />
+                      </h3>
+                      <p>
+                        <Skeleton width={40} />
+                      </p>
+                    </div>
+                  ))}
+                </SkeletonTheme>
+              ) : (
+                songs.map((song) => (
+                  <div
+                    className={styles.song_card}
+                    key={song._id}
+                    onClick={() => navigate(`/Artist/${song.artist.name}`)}
+                  >
+                    <div className={styles.image_wrapper_1}>
+                      <img src={song.artist.imageURL} alt={song.songname} />
+                    </div>
+                    <h3>{song.artist.name}</h3>
+                    <p>Artist</p>
                   </div>
-                  <h3>{song.artist.name}</h3>
-                  <p>Artist</p>
-                </div>
-              ))}
+                ))
+              )}
             </div>
             <FooterUp />
           </div>

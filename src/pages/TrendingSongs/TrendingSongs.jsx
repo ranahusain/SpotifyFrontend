@@ -12,13 +12,15 @@ import { useContext } from "react";
 import { SongContext } from "../../context/SongContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const TrendingSongs = () => {
   const navigate = useNavigate();
 
   const { songDetails, setSongDetails, isPlaying, setIsPlaying } =
     useContext(SongContext);
-
+  const [loading, setLoading] = useState(true);
   const [songs, setSong] = useState([]);
 
   useEffect(() => {
@@ -30,6 +32,8 @@ const TrendingSongs = () => {
         setSong(res.data);
       } catch (error) {
         console.log("error in fetching songs");
+      } finally {
+        setLoading(false);
       }
     };
     fetchsongs();
@@ -141,49 +145,67 @@ const TrendingSongs = () => {
           </div>
 
           <div className={styles.song_grid}>
-            {songs.map((song) => (
-              <div className={styles.song_card} key={song._id}>
-                <div className={styles.image_wrapper}>
-                  <img src={song.imageURL} alt={song.songname} />
-                  <div
-                    className={styles.play_icon}
-                    onClick={() => togglePlay(song)}
-                  >
-                    {isLoggedIn ? (
-                      songDetails.songURL === song.songURL && isPlaying ? (
-                        <FaPause className={styles.audio_icon} />
-                      ) : (
-                        <FaPlay className={styles.audio_icon} />
-                      )
-                    ) : (
-                      <Link to="/LogIn" className={styles.audio_icon_link}>
-                        <FaPlay className={styles.audio_icon} />
-                      </Link>
-                    )}
+            {loading ? (
+              <SkeletonTheme baseColor="#2a2a2a" highlightColor="#3e3e3e">
+                {Array.from({ length: 7 }).map((_, i) => (
+                  <div className={styles.song_card} key={i}>
+                    <div className={styles.image_wrapper}>
+                      <Skeleton height={150} />
+                    </div>
+                    <h3>
+                      <Skeleton width={100} />
+                    </h3>
+                    <p>
+                      <Skeleton width={60} />
+                    </p>
                   </div>
-                </div>
-                <h3>{song.songname}</h3>
-                <div className={styles.details}>
-                  <span
-                    className={styles.threedot}
-                    onClick={() => handleThreeDotClick(song._id)}
-                  >
-                    <BsThreeDotsVertical />
-                  </span>
-                </div>
-                {openMenuId === song._id && (
-                  <div className={styles.popupMenu}>
-                    <button
-                      onClick={() => handleAddToPlaylistClick(song)}
-                      className={styles.btn}
+                ))}
+              </SkeletonTheme>
+            ) : (
+              songs.map((song) => (
+                <div className={styles.song_card} key={song._id}>
+                  <div className={styles.image_wrapper}>
+                    <img src={song.imageURL} alt={song.songname} />
+                    <div
+                      className={styles.play_icon}
+                      onClick={() => togglePlay(song)}
                     >
-                      Add to Playlist
-                    </button>
+                      {isLoggedIn ? (
+                        songDetails.songURL === song.songURL && isPlaying ? (
+                          <FaPause className={styles.audio_icon} />
+                        ) : (
+                          <FaPlay className={styles.audio_icon} />
+                        )
+                      ) : (
+                        <Link to="/LogIn" className={styles.audio_icon_link}>
+                          <FaPlay className={styles.audio_icon} />
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                )}
-                <p>{song.artist.name}</p>
-              </div>
-            ))}
+                  <h3>{song.songname}</h3>
+                  <div className={styles.details}>
+                    <span
+                      className={styles.threedot}
+                      onClick={() => handleThreeDotClick(song._id)}
+                    >
+                      <BsThreeDotsVertical />
+                    </span>
+                  </div>
+                  {openMenuId === song._id && (
+                    <div className={styles.popupMenu}>
+                      <button
+                        onClick={() => handleAddToPlaylistClick(song)}
+                        className={styles.btn}
+                      >
+                        Add to Playlist
+                      </button>
+                    </div>
+                  )}
+                  <p>{song.artist.name}</p>
+                </div>
+              ))
+            )}
           </div>
           {showPlaylistPopup && (
             <div className={styles.playlistPopup}>
