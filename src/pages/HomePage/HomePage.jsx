@@ -58,8 +58,6 @@ const HomePage = () => {
     }
   }, [location]);
 
-  window.location.reload();
-
   return (
     <>
       <NavBar />
