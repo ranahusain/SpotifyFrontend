@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/NavBar/NavBar";
 import styles from "./Plans.module.css";
 import Payment from "../../pages/Payment/Payment";
 import PlanPageFooter from "../../components/PlanPageFooter/PlanPageFooter";
