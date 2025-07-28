@@ -13,72 +13,25 @@ const LeftBar = () => {
   const [isUserReady, setIsUserReady] = useState(false);
   const [isPremium, setisPremium] = useState(false);
 
-  // useEffect(() => {
-  //   const user = JSON.parse(localStorage.getItem("user"));
-  //   if (user && user._id) {
-  //     setOwner(user._id || user.id || "");
-  //     setisPremium(user.isPremium);
-  //   }
-  // }, []);
-
-  // const handlePlusClick = () => {
-  //   setShowCreatePopup(!showCreatePopup);
-  // };
-  // const submitForm = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!isPremium) {
-  //     toast.error("You need to buy Premium to create a playlist.");
-  //     return;
-  //   }
-  //   console.log(isPremium);
-  //   try {
-  //     const res = await axios.post(
-  //       "https://spotifybackend-4.onrender.com/api/playlists",
-  //       {
-  //         name,
-  //         owner,
-  //       }
-  //     );
-  //     console.log(res.data);
-  //     toast.success("Playlist created successfully!");
-  //     setName("");
-  //     setShowCreatePopup(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Failed to create playlist.");
-  //   }
-  // };
-
   useEffect(() => {
-    const userStr = localStorage.getItem("user");
-    if (!userStr) return;
-
-    try {
-      const user = JSON.parse(userStr);
-      if (user && (user._id || user.id)) {
-        setOwner(user._id || user.id || "");
-        setisPremium(user.isPremium);
-      }
-    } catch (err) {
-      console.error("Invalid user JSON:", err);
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user._id) {
+      setOwner(user._id || user.id || "");
+      setisPremium(user.isPremium);
     }
-    setIsUserReady(true);
   }, []);
 
+  const handlePlusClick = () => {
+    setShowCreatePopup(!showCreatePopup);
+  };
   const submitForm = async (e) => {
     e.preventDefault();
-
-    if (!isUserReady) {
-      toast.error("User data not loaded yet. Please wait.");
-      return;
-    }
 
     if (!isPremium) {
       toast.error("You need to buy Premium to create a playlist.");
       return;
     }
-
+    console.log(isPremium);
     try {
       const res = await axios.post(
         "https://spotifybackend-4.onrender.com/api/playlists",
@@ -87,10 +40,12 @@ const LeftBar = () => {
           owner,
         }
       );
+      console.log(res.data);
       toast.success("Playlist created successfully!");
       setName("");
       setShowCreatePopup(false);
     } catch (error) {
+      console.log(error);
       toast.error("Failed to create playlist.");
     }
   };
