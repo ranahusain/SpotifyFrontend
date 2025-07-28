@@ -45,9 +45,6 @@ const HomePage = () => {
               `https://spotifybackend-4.onrender.com/api/user/${userId}`
             );
             localStorage.setItem("user", JSON.stringify(data.user));
-            setTimeout(() => {
-              window.location.href = "/";
-            }, 1000);
           } catch (error) {
             console.error("Error updating premium status:", error);
             toast.error("Something went wrong while upgrading.");
