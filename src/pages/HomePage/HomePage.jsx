@@ -40,6 +40,7 @@ const HomePage = () => {
                 isPremium: true,
               }
             );
+            window.location.reload();
             toast.success("Payment successful!");
             const { data } = await axios.get(
               `https://spotifybackend-4.onrender.com/api/user/${userId}`
