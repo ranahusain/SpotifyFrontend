@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import NavBar from "../../components/Navbar/Navbar";
+import NavBar from "../../components/NavBar/NavBar.jsx";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import Footer from "../../components/Footer/Footer";
 import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
