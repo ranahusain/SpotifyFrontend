@@ -9,7 +9,7 @@ import axios from "axios";
 
 const HomePage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const hasHandledPayment = useRef(false); // 🛡️ Prevent duplicate call
+  const hasHandledPayment = useRef(false); // Prevent duplicate call
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,12 +40,14 @@ const HomePage = () => {
                 isPremium: true,
               }
             );
-            window.location.reload();
             toast.success("Payment successful!");
             const { data } = await axios.get(
               `https://spotifybackend-4.onrender.com/api/user/${userId}`
             );
             localStorage.setItem("user", JSON.stringify(data.user));
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 1000);
           } catch (error) {
             console.error("Error updating premium status:", error);
             toast.error("Something went wrong while upgrading.");
@@ -58,6 +60,8 @@ const HomePage = () => {
       handlePayment();
     }
   }, [location]);
+
+  window.location.reload();
 
   return (
     <>
