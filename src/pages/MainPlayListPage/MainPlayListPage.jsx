@@ -1,6 +1,6 @@
 import React from "react";
 import PlayListLeftBar from "../../components/PlayListLeftBar/PlayListBar";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/NavBar/NavBar";
 import styles from "./MainPlayList.module.css";
 import { SlMusicToneAlt } from "react-icons/sl";
 

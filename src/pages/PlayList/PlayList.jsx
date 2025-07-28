@@ -4,7 +4,7 @@ import axios from "axios";
 import PlayListBar from "../../components/PlayListLeftBar/PlayListBar";
 import styles from "./PlayList.module.css";
 import { SlMusicToneAlt } from "react-icons/sl";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/NavBar/NavBar";
 
 const PlaylistPage = () => {
   const { id } = useParams();

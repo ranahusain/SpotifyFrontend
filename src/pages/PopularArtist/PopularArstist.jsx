@@ -3,7 +3,7 @@ import styles from "./PopularArtist.module.css";
 
 import axios from "axios";
 import FooterUp from "../../components/FooterUp/FooterUp";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/NavBar/NavBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
 import Footer from "../../components/Footer/Footer";
 

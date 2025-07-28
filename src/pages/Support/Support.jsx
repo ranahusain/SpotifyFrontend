@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Support.module.css";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/NavBar/NavBar";
 import PlanPageFooter from "../../components/PlanPageFooter/PlanPageFooter";
 
 const categories = [

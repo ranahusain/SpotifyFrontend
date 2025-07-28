@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/NavBar/NavBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
 import Footer from "../../components/Footer/Footer";
 import { useState, useEffect } from "react";

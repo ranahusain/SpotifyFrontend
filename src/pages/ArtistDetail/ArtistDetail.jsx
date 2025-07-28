@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar/Navbar";
+import NavBar from "../../components/NavBar/NavBar";
 import LeftBar from "../../components/LeftBar/LeftBar";
 import Footer from "../../components/Footer/Footer";
 import { useState, useEffect } from "react";
@@ -27,7 +27,7 @@ const ArtistDetail = () => {
 
   return (
     <>
-      <Navbar />
+      <NavBar />
       <section className={styles.main_section}>
         <LeftBar />
 

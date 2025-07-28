@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import styles from "./PlayListBar.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
 const PlaylistSidebar = () => {
   const [playlists, setPlaylists] = useState([]);
 
