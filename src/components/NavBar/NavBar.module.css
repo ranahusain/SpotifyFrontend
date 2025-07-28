@@ -1,0 +1,106 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.25rem;
+  height: 4rem;
+  background-color: black;
+}
+
+.nav_left {
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.nav_right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #b3b3b3;
+  font-size: 1rem;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.nav_img {
+  height: 2rem;
+  width: 2rem;
+  color: white;
+}
+
+.nav_img_1 {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 1.25rem;
+  padding: 0.3125rem;
+  margin-left: 1rem;
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.nav_btn {
+  padding: 0.5625rem 2rem;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+  border-radius: 1.5625rem;
+  border: none;
+  cursor: pointer;
+}
+
+.nav_btn:hover {
+  background-color: #d8d2d2;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  background: #1f1f1f;
+  color: #b3b3b3;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1.875rem;
+  width: 25rem;
+  height: 1.875rem;
+}
+
+.search_bar .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #1f1f1f;
+}
+
+.search_bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.625rem;
+  border-radius: 1.25rem;
+  font-size: 0.875rem;
+  background: #1f1f1f;
+  color: #b3b3b3;
+}
+
+.separator {
+  margin: 0 0.625rem;
+  color: #b3b3b3;
+}
+
+.download_icon {
+  height: 1.3rem;
+  width: 1.3rem;
+  color: white;
+  margin-top: -0.2rem;
+  margin-right: -1rem;
+}
+
+h3 {
+  color: white;
+}

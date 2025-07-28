@@ -1,0 +1,56 @@
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0px;
+  margin: 10px auto;
+  max-width: 400px;
+  border-radius: 12px;
+  background-color: #0000;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-style: none;
+}
+
+.uploadInput {
+  margin-bottom: 16px;
+  width: 400px;
+}
+
+.uploadButton {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #1db954;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.uploadButton:hover:not(:disabled) {
+  background-color: #17a74a;
+  color: white;
+}
+
+.uploadButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.uploadURL {
+  margin-top: 16px;
+  word-break: break-word;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.uploadLabel {
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  margin-bottom: 10px;
+}

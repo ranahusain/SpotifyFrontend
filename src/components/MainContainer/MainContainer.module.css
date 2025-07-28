@@ -1,0 +1,7 @@
+.main_section {
+  display: flex;
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  gap: 10px;
+}

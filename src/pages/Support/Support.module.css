@@ -1,0 +1,84 @@
+.container {
+  background-color: #000000;
+  color: white;
+  font-family: "Helvetica Neue", sans-serif;
+  min-height: 80vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.supportHeader {
+  font-size: 14px;
+  color: #b3b3b3;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.loginText {
+  margin-top: 10px;
+  color: #b3b3b3;
+  font-size: 16px;
+}
+
+.loginLink {
+  color: white;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.searchBar {
+  margin-top: 30px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  max-width: 600px;
+  font-size: 16px;
+}
+
+.categories {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 18px;
+  color: #1ed760;
+}
+
+.cardText {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.dropdown {
+  color: #b3b3b3;
+  font-size: 18px;
+}
