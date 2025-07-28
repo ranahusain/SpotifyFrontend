@@ -10,7 +10,7 @@ const LeftBar = () => {
   const [showCreatePopup, setShowCreatePopup] = useState(false);
   const [name, setName] = useState("");
   const [owner, setOwner] = useState("");
-  const [isUserReady, setIsUserReady] = useState(false);
+
   const [isPremium, setisPremium] = useState(false);
 
   useEffect(() => {
