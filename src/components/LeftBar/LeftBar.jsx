@@ -27,7 +27,8 @@ const LeftBar = () => {
   const submitForm = async (e) => {
     e.preventDefault();
 
-    if (!isPremium) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user.isPremium) {
       toast.error("You need to buy Premium to create a playlist.");
       return;
     }

@@ -9,11 +9,11 @@ import axios from "axios";
 
 const HomePage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const hasHandledPayment = useRef(false); // Prevent duplicate call
+  const hasHandledPayment = useRef(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // cleaner version
+    setIsLoggedIn(!!token);
   }, []);
 
   const location = useLocation();
