@@ -188,10 +188,10 @@ const LogIn = () => {
                 />
                 Continue with Google
               </button>
-              <button>
+              {/* <button>
                 <FaGithub className={styles.git_btn} />
                 Continue with GitHub
-              </button>
+              </button> */}
             </div>
 
             <p className={styles.login_link}>

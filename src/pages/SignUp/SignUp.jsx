@@ -28,77 +28,6 @@ const SignUp = () => {
     }
   };
 
-  // const submitForm = async (e) => {
-  //   if (!isVerificationStep) {
-  //     try {
-  //       const res = await axios.post("https://spotifybackend-4.onrender.com/api/signup/", {
-  //         name,
-  //         email,
-  //         password,
-  //       });
-
-  //       if (res.data.success) {
-  //         toast.success("Verification code sent to your email!");
-  //         setIsVerificationStep(true); // enable verification UI
-  //         return; // ⛔️ Don't go further yet
-  //       } else {
-  //         toast.error("Signup failed. Try again.");
-  //         return;
-  //       }
-  //     } catch (err) {
-  //       console.log(err);
-  //       toast.error("Something went wrong during sign-up.");
-  //       return;
-  //     }
-  //   }
-
-  //   e.preventDefault();
-  //   const newUser = { name, email, password };
-  //   try {
-  //     const res = await axios.post(
-  //       "https://spotifybackend-4.onrender.com/api/signup/",
-  //       newUser
-  //     );
-
-  //     if (res.data.success) {
-  //       if (isVerificationStep) {
-  //         try {
-  //           const res = await axios.post(
-  //             "https://spotifybackend-4.onrender.com/api/verify-email",
-  //             {
-  //               email,
-  //               code: verificationCode,
-  //             }
-  //           );
-
-  //           if (res.status === 200) {
-  //             toast.success("Email verified! Welcome email sent.");
-  //           } else {
-  //             toast.error("Invalid verification code.");
-  //             return;
-  //           }
-  //         } catch (err) {
-  //           toast.error("Verification failed. Try again.");
-  //           return;
-  //         }
-  //       }
-
-  //       if (res.data.token) {
-  //         const loggedInUser = res.data.user;
-  //         localStorage.setItem("user", JSON.stringify(loggedInUser));
-  //         localStorage.setItem("token", res.data.token);
-  //         toast.success("Account created successfully!");
-  //         return navigate("/");
-  //       }
-  //     } else {
-  //       toast.error("Sign up failed. Please try again.");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Something went wrong during sign-up.");
-  //   }
-  // };
-
   const submitForm = async (e) => {
     e.preventDefault();
 
@@ -320,10 +249,10 @@ const SignUp = () => {
               />
               Sign up with Google
             </button>
-            <button>
+            {/* <button>
               <FaGithub className={styles.git_btn} />
               Sign up with Github
-            </button>
+            </button> */}
           </div>
 
           <p className={styles.login_link}>
